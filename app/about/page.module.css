@@ -1,0 +1,233 @@
+/* ============================================
+   ABOUT PAGE
+   ============================================ */
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  background: var(--color-background);
+}
+
+/* ---- BACKGROUND ---- */
+
+.gridBg {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--color-divider) 0.5px, transparent 0.5px),
+    linear-gradient(90deg, var(--color-divider) 0.5px, transparent 0.5px);
+  background-size: 80px 80px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ---- NAV ---- */
+
+.nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 40px;
+  border-bottom: 0.5px solid var(--color-divider);
+}
+
+.navLogo {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: var(--weight-regular);
+  color: var(--color-secondary-text);
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.navLink {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: var(--tracking-medium);
+  text-transform: uppercase;
+  color: var(--color-secondary-text);
+  transition: color var(--fade-quick) var(--ease-default);
+}
+
+.navLink:hover {
+  color: var(--color-tertiary-text);
+}
+
+/* ---- HERO ---- */
+
+.hero {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 100px var(--space-horizontal) 80px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-hero);
+  line-height: 1.1;
+  color: var(--color-secondary-text);
+  margin-bottom: 20px;
+}
+
+.heroSubtitle {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-italic-medium);
+  line-height: var(--leading-loose);
+  color: var(--color-tertiary-text);
+}
+
+/* ---- FEATURE SECTIONS ---- */
+
+.features {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 var(--space-horizontal) 120px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  padding: 80px 0;
+  border-top: 0.5px solid var(--color-divider);
+}
+
+.feature:last-child {
+  border-bottom: 0.5px solid var(--color-divider);
+}
+
+.featureReverse {
+  flex-direction: row-reverse;
+}
+
+/* ---- FEATURE PHONE ---- */
+
+.featurePhone {
+  position: relative;
+  flex-shrink: 0;
+  width: 300px;
+  aspect-ratio: 1210 / 2488;
+  overflow: visible;
+}
+
+.featurePhoneFrame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.featurePhoneScreen {
+  position: absolute;
+  top: 1.97%;
+  left: 5.43%;
+  width: 89.17%;
+  height: 95.48%;
+  border-radius: 11.43% / 5.19%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* ---- FEATURE TEXT ---- */
+
+.featureText {
+  flex: 1;
+}
+
+.featureLabel {
+  font-family: var(--font-mono);
+  font-size: var(--mono-button);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-muted-text);
+  margin-bottom: 16px;
+}
+
+.featureTitle {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-title);
+  line-height: var(--leading-compact);
+  color: var(--color-secondary-text);
+  margin-bottom: 20px;
+}
+
+.featureDescription {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-italic-medium);
+  line-height: var(--leading-loose);
+  color: var(--color-tertiary-text);
+}
+
+/* ---- RESPONSIVE ---- */
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 18px var(--space-horizontal);
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .hero {
+    padding: 60px var(--space-horizontal) 40px;
+  }
+
+  .heroTitle {
+    font-size: var(--text-display);
+  }
+
+  .feature,
+  .featureReverse {
+    flex-direction: column;
+    gap: 48px;
+    padding: 60px 0;
+    text-align: center;
+  }
+
+  .featurePhone {
+    width: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 20px 30px;
+  }
+
+  .heroTitle {
+    font-size: var(--text-title);
+  }
+
+  .heroSubtitle {
+    font-size: var(--text-body);
+  }
+
+  .featurePhone {
+    width: 240px;
+  }
+
+  .featureTitle {
+    font-size: var(--text-headline);
+  }
+
+  .featureDescription {
+    font-size: var(--text-body);
+  }
+}

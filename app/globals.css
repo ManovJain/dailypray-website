@@ -1,13 +1,100 @@
+/* ============================================
+   DAILYPRAY DESIGN SYSTEM
+   ============================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --- COLORS --- */
+  --color-background:           #FAFAF7;
+  --color-background-secondary: #F3F3EF;
+  --color-foreground:           #000000;
+  --color-secondary-text:       #1A1A1A;
+  --color-tertiary-text:        #666666;
+  --color-muted-text:           #999999;
+  --color-divider:              #E0E0DC;
+  --color-card-border:          #D8D8D4;
+  --color-destructive:          #C41E1E;
+  --color-inverse-bg:           #000000;
+  --color-inverse-fg:           #FAFAF7;
+  --color-card-background:      #FFFFFF;
+  --color-card-shadow:          rgba(0, 0, 0, 0.04);
+
+  /* --- FONT FAMILIES --- */
+  --font-serif: var(--font-lora), 'Lora', Georgia, 'Times New Roman', serif;
+  --font-mono:  var(--font-akkurat), 'Akkurat', 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* --- FONT SIZES (Serif scale) --- */
+  --text-stat:          80px;
+  --text-decorative:    60px;
+  --text-hero:          48px;
+  --text-display:       40px;
+  --text-title:         32px;
+  --text-headline:      28px;
+  --text-mantra:        26px;
+  --text-subheadline:   24px;
+  --text-large:         24px;
+  --text-verse:         22px;
+  --text-italic-large:  20px;
+  --text-italic-medium: 18px;
+  --text-body:          16px;
+  --text-small:         14px;
+  --text-caption:       12px;
+
+  /* --- FONT SIZES (Mono scale) --- */
+  --mono-button:        12px;
+  --mono-caption:       10px;
+  --mono-meta:          9px;
+
+  /* --- FONT WEIGHTS --- */
+  --weight-regular:     400;
+  --weight-medium:      500;
+  --weight-semibold:    600;
+  --weight-bold:        700;
+
+  /* --- LETTER SPACING --- */
+  --tracking-wide:      4px;
+  --tracking-medium:    3px;
+  --tracking-button:    2px;
+  --tracking-tight:     1px;
+
+  /* --- LINE HEIGHT --- */
+  --leading-compact:    1.2;
+  --leading-default:    1.4;
+  --leading-loose:      1.6;
+
+  /* --- SPACING --- */
+  --space-horizontal:   28px;
+  --space-section:      40px;
+  --space-card-h:       24px;
+  --space-card-v:       28px;
+  --space-element:      16px;
+  --space-screen-top:   60px;
+  --space-screen-bottom:48px;
+  --space-button-v:     18px;
+  --space-row-v:        12px;
+  --space-row-v-large:  14px;
+
+  /* --- CARDS --- */
+  --card-border-width:  0.5px;
+  --card-radius:        16px;
+  --card-shadow:        0 4px 12px var(--color-card-shadow);
+
+  /* --- ANIMATION --- */
+  --fade-in-duration:   1.2s;
+  --fade-in-delay:      0.25s;
+  --fade-quick:         0.4s;
+  --ease-default:       cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================
+   RESET & BASE
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html,
@@ -17,17 +104,11 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-foreground);
+  background: var(--color-background);
+  font-family: var(--font-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }
 
 a {
@@ -35,8 +116,27 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* ============================================
+   FADE-IN ANIMATION
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+.fade-in {
+  animation: fadeInUp var(--fade-in-duration) var(--ease-default) both;
+}
+.fade-in--delay-1 { animation-delay: 0.2s; }
+.fade-in--delay-2 { animation-delay: 0.4s; }
+.fade-in--delay-3 { animation-delay: 0.6s; }
+.fade-in--delay-4 { animation-delay: 0.8s; }
+.fade-in--delay-5 { animation-delay: 1.0s; }
+.fade-in--delay-6 { animation-delay: 1.2s; }

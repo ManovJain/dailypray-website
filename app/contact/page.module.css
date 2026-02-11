@@ -1,0 +1,201 @@
+/* ============================================
+   CONTACT PAGE
+   ============================================ */
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  background: var(--color-background);
+}
+
+.gridBg {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--color-divider) 0.5px, transparent 0.5px),
+    linear-gradient(90deg, var(--color-divider) 0.5px, transparent 0.5px);
+  background-size: 80px 80px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ---- NAV ---- */
+
+.nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 40px;
+  border-bottom: 0.5px solid var(--color-divider);
+}
+
+.navLogo {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: var(--weight-regular);
+  color: var(--color-secondary-text);
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.navLink {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: var(--tracking-medium);
+  text-transform: uppercase;
+  color: var(--color-secondary-text);
+  transition: color var(--fade-quick) var(--ease-default);
+}
+
+.navLink:hover {
+  color: var(--color-tertiary-text);
+}
+
+/* ---- CONTENT ---- */
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 80px var(--space-horizontal) 120px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-title);
+  line-height: 1.1;
+  color: var(--color-secondary-text);
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-italic-medium);
+  line-height: var(--leading-loose);
+  color: var(--color-tertiary-text);
+  margin-bottom: 48px;
+}
+
+/* ---- FORM ---- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--mono-button);
+  letter-spacing: var(--tracking-button);
+  text-transform: uppercase;
+  color: var(--color-muted-text);
+}
+
+.input,
+.textarea {
+  font-family: var(--font-serif);
+  font-size: var(--text-body);
+  line-height: var(--leading-default);
+  color: var(--color-foreground);
+  background: var(--color-card-background);
+  border: 1px solid var(--color-card-border);
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color var(--fade-quick) var(--ease-default);
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--color-foreground);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--color-muted-text);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 160px;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  padding: 16px 44px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-inverse-fg);
+  background: var(--color-foreground);
+  border: 1px solid var(--color-foreground);
+  cursor: pointer;
+  transition: all var(--fade-quick) var(--ease-default);
+}
+
+.submitBtn:hover {
+  background: transparent;
+  color: var(--color-foreground);
+}
+
+.submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---- STATUS MESSAGES ---- */
+
+.success {
+  font-family: var(--font-serif);
+  font-size: var(--text-body);
+  line-height: var(--leading-loose);
+  color: var(--color-secondary-text);
+  padding: 20px 24px;
+  background: var(--color-card-background);
+  border: 1px solid var(--color-card-border);
+}
+
+.error {
+  font-family: var(--font-serif);
+  font-size: var(--text-small);
+  color: var(--color-destructive);
+}
+
+/* ---- RESPONSIVE ---- */
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 18px var(--space-horizontal);
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .content {
+    padding: 48px var(--space-horizontal) 80px;
+  }
+
+  .title {
+    font-size: var(--text-headline);
+  }
+}

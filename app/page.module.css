@@ -1,141 +1,368 @@
+/* ============================================
+   LANDING PAGE
+   ============================================ */
+
 .page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+  position: relative;
+  height: 100vh;
+  background: var(--color-background);
+  overflow: hidden;
 }
+
+/* ---- BACKGROUND ---- */
+
+.gridBg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--color-divider) 0.5px, transparent 0.5px),
+    linear-gradient(90deg, var(--color-divider) 0.5px, transparent 0.5px);
+  background-size: 80px 80px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.glowBg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 50% at 50% 0%,
+    rgba(255, 255, 255, 0.8) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* ---- HAND OF GOD ---- */
+
+.handsContainer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.handLeftWrap,
+.handRightWrap {
+  position: absolute;
+  top: 25%;
+}
+
+.handLeftWrap {
+  left: 0;
+  transform: translateY(-50%) translateX(-120%);
+  animation: reachLeft 3s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+}
+
+.handRightWrap {
+  right: 0;
+  transform: translateY(-50%) translateX(120%);
+  animation: reachRight 3s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+}
+
+.handLeftImg,
+.handRightImg {
+  display: block;
+  height: 80vh;
+  width: auto;
+}
+
+.handLeftImg {
+  transform: rotate(90deg);
+}
+
+.handRightImg {
+  transform: rotate(90deg);
+}
+
+@keyframes reachLeft {
+  to {
+    transform: translateY(-50%) translateX(55%);
+  }
+}
+
+@keyframes reachRight {
+  to {
+    transform: translateY(-50%) translateX(-55%);
+  }
+}
+
+/* ---- NAV ---- */
+
+.nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 40px;
+  border-bottom: 0.5px solid var(--color-divider);
+}
+
+.navLogo {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: var(--weight-regular);
+  color: var(--color-secondary-text);
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.navLink {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: var(--tracking-medium);
+  text-transform: uppercase;
+  color: var(--color-secondary-text);
+  transition: color var(--fade-quick) var(--ease-default);
+}
+
+.navLink:hover {
+  color: var(--color-tertiary-text);
+}
+
+/* ---- MAIN ---- */
 
 .main {
+  position: relative;
+  z-index: 1;
   display: flex;
-  min-height: 100vh;
-  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100% - 67px);
+}
+
+/* ---- HERO ---- */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 80px var(--space-horizontal) 32px;
   max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+  margin: 0 auto;
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
+.title {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-decorative);
+  line-height: 1.1;
+  color: var(--color-secondary-text);
+  margin-bottom: 24px;
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
+.subtitle {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-italic-medium);
+  line-height: var(--leading-loose);
+  color: var(--color-tertiary-text);
+  max-width: 600px;
+  margin-bottom: 48px;
 }
 
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
+/* ---- CTA ---- */
 
 .ctas {
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
-  display: flex;
   justify-content: center;
+}
+
+.downloadBtn {
+  display: inline-flex;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
+  justify-content: center;
+  padding: 18px 52px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-inverse-fg);
+  background: var(--color-foreground);
+  border: 1px solid var(--color-foreground);
   cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+  transition: all var(--fade-quick) var(--ease-default);
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.downloadBtn:hover {
+  background: transparent;
+  color: var(--color-foreground);
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+/* ---- PHONE MOCKUPS ---- */
+
+.phones {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  padding: 0 var(--space-horizontal);
+  max-width: 1000px;
+  margin: -10px auto 0;
+  flex: 1;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+.iphone {
+  position: relative;
+  flex-shrink: 0;
+  aspect-ratio: 1210 / 2488;
+  overflow: visible;
+}
+
+.iphoneFrame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.iphoneScreen {
+  position: absolute;
+  top: 1.97%;
+  left: 5.43%;
+  width: 89.17%;
+  height: 95.48%;
+  border-radius: 11.43% / 5.19%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Carousel fade transition */
+.carouselImage {
+  opacity: 0;
+  transition: opacity 1s var(--ease-default);
+}
+
+.carouselImageActive {
+  opacity: 1;
+}
+
+/* Desktop / mobile visibility */
+.desktopOnly {
+  display: block;
+}
+
+.mobileOnly {
+  display: none;
+}
+
+/* Center phone — largest */
+.phoneCenter {
+  z-index: 3;
+  width: 336px;
+}
+
+/* Side phones — smaller, partially behind center */
+.phoneLeft,
+.phoneRight {
+  z-index: 1;
+  width: 288px;
+}
+
+.phoneLeft {
+  margin-right: -40px;
+  transform: translateY(30px);
+}
+
+.phoneRight {
+  margin-left: -40px;
+  transform: translateY(30px);
+}
+
+/* ---- RESPONSIVE ---- */
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 18px var(--space-horizontal);
   }
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+  .navLinks {
+    display: none;
+  }
+
+  .hero {
+    padding: 60px var(--space-horizontal) 36px;
+  }
+
+  .title {
+    font-size: var(--text-display);
+  }
+
+  .subtitle {
+    font-size: var(--text-body);
+    margin-bottom: 36px;
+  }
+
+  .downloadBtn {
+    padding: 16px 40px;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+
+  .mobileOnly {
+    display: block;
+  }
+
+  .phones {
+    padding: 0;
+    overflow: visible;
+  }
+
+  .phoneCenter {
+    width: 336px;
+  }
+
+  .handLeftWrap,
+  .handRightWrap {
+    top: 20%;
+  }
+
+  .handLeftImg,
+  .handRightImg {
+    height: 50vh;
   }
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
+@media (max-width: 480px) {
+  .hero {
+    padding: 48px 20px 28px;
   }
 
-  .intro {
-    gap: 16px;
+  .title {
+    font-size: var(--text-title);
   }
 
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+  .subtitle {
+    font-size: var(--text-small);
+    max-width: 300px;
+    margin-bottom: 32px;
   }
 
-  .page {
-    --background: #000;
-    --foreground: #000;
+  .downloadBtn {
+    padding: 14px 36px;
+    font-size: 11px;
+  }
 
-    --text-primary: #ededed;
-    --text-secondary: #999;
+  .phoneCenter {
+    width: 312px;
+  }
 
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
+  .handLeftWrap,
+  .handRightWrap {
+    top: 15%;
+  }
+
+  .handLeftImg,
+  .handRightImg {
+    height: 35vh;
   }
 }
