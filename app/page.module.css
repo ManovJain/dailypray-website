@@ -132,10 +132,10 @@
 }
 
 /* ============================================
-   WIDE (≥1280px)
+   WIDE (1280px – 1599px)
    ============================================ */
 
-@media (min-width: 1280px) {
+@media (min-width: 1280px) and (max-width: 1599px) {
   .hero {
     padding: 28px var(--space-horizontal) 14px;
   }
@@ -165,7 +165,68 @@
   }
 
   .phones {
-    margin: 120px auto 0;
+    margin: 160px auto 0;
+    padding: 0 var(--space-horizontal);
+    max-width: 1000px;
+  }
+
+  .phoneCenter {
+    z-index: 3;
+    width: 300px;
+  }
+
+  .phoneLeft,
+  .phoneRight {
+    z-index: 1;
+    width: 256px;
+  }
+
+  .phoneLeft {
+    margin-right: -40px;
+    transform: translateY(30px);
+  }
+
+  .phoneRight {
+    margin-left: -40px;
+    transform: translateY(30px);
+  }
+}
+
+/* ============================================
+   ULTRA-WIDE (≥1600px)
+   ============================================ */
+
+@media (min-width: 1600px) {
+  .hero {
+    padding: 28px var(--space-horizontal) 14px;
+  }
+
+  .title {
+    font-size: var(--text-decorative);
+    margin-bottom: 14px;
+  }
+
+  .subtitle {
+    font-size: var(--text-italic-medium);
+    max-width: 600px;
+    margin-bottom: 24px;
+  }
+
+  .downloadBtn {
+    padding: 14px 44px;
+    font-size: 12px;
+  }
+
+  .desktopOnly {
+    display: block;
+  }
+
+  .mobileOnly {
+    display: none;
+  }
+
+  .phones {
+    margin: 200px auto 0;
     padding: 0 var(--space-horizontal);
     max-width: 1000px;
   }
@@ -226,7 +287,7 @@
   }
 
   .phones {
-    margin: 200px auto 0;
+    margin: 160px auto 0;
     padding: 0 var(--space-horizontal);
     max-width: 1000px;
   }
@@ -300,5 +361,34 @@
   .phoneLeft,
   .phoneRight {
     display: none;
+  }
+
+  .modalOverlay {
+    padding: 20px;
+  }
+
+  .modal {
+    max-width: 100%;
+    width: 100%;
+    padding: 40px 24px;
+  }
+
+  .modalTitle {
+    font-size: var(--text-headline);
+    margin-bottom: 10px;
+  }
+
+  .modalSubtitle {
+    font-size: var(--text-small);
+    margin-bottom: 28px;
+  }
+
+  .modalForm {
+    gap: 14px;
+  }
+
+  .modalBtn {
+    padding: 14px 36px;
+    font-size: 11px;
   }
 }
