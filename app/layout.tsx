@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Nav } from "./components/Nav";
 import "./globals.css";
 
 const lora = localFont({
@@ -55,6 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${lora.variable} ${akkuratMono.variable}`}>
       <body>
+        <Nav />
         {children}
       </body>
     </html>

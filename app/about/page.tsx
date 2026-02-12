@@ -34,17 +34,6 @@ export default function About() {
     <div className={styles.page}>
       <div className={styles.gridBg} />
 
-      {/* Navigation */}
-      <nav className={styles.nav}>
-        <a href="/" className={styles.navLogo}>DailyPray</a>
-        <div className={styles.navLinks}>
-          <a href="/about" className={styles.navLink}>About</a>
-          <a href="/privacy" className={styles.navLink}>Privacy Policy</a>
-          <a href="#" className={styles.navLink}>Changelog</a>
-          <a href="/contact" className={styles.navLink}>Contact</a>
-        </div>
-      </nav>
-
       {/* Hero */}
       <section className={`${styles.hero} fade-in`}>
         <h1 className={styles.heroTitle}>About DailyPray</h1>

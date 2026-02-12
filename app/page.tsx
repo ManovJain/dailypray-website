@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { HandsBackground } from "./components/HandsBackground";
 import { IPhoneFrame } from "./components/IPhoneMockup";
 import styles from "./page.module.css";
 
@@ -76,40 +77,19 @@ export default function Home() {
       <div className={styles.glowBg} />
 
       {/* Hand of God background */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <div className={styles.handsContainer}>
-        <div className={styles.handLeftWrap}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/hand1.svg" alt="" className={styles.handLeftImg} />
-        </div>
-        <div className={styles.handRightWrap}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/hand2.svg" alt="" className={styles.handRightImg} />
-        </div>
-      </div>
-
-      {/* Navigation */}
-      <nav className={styles.nav}>
-        <span className={styles.navLogo}>DailyPray</span>
-        <div className={styles.navLinks}>
-          <a href="/about" className={styles.navLink}>About</a>
-          <a href="/privacy" className={styles.navLink}>Privacy Policy</a>
-          <a href="#" className={styles.navLink}>Changelog</a>
-          <a href="/contact" className={styles.navLink}>Contact</a>
-        </div>
-      </nav>
+      <HandsBackground />
 
       <main className={styles.main}>
         {/* Hero */}
         <section className={styles.hero}>
-          <h1 className={`${styles.title} fade-in`}>DailyPray</h1>
+          <h1 className={`${styles.title} fade-in ${styles.titleAnimated}`}>DailyPray</h1>
 
-          <p className={`${styles.subtitle} fade-in fade-in--delay-1`}>
+          <p className={`${styles.subtitle} fade-in ${styles.subtitleAnimated}`}>
             A gentle daily companion for prayer, scripture, and spiritual
             reflection.
           </p>
 
-          <div className={`${styles.ctas} fade-in fade-in--delay-2`}>
+          <div className={`${styles.ctas} fade-in ${styles.ctaAnimated}`}>
             <a
               href="#"
               className={styles.downloadBtn}
@@ -120,8 +100,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Phone mockups — desktop: 3 static, mobile: 1 carousel */}
-        <section className={`${styles.phones} fade-in fade-in--delay-3`}>
+        {/* Phone mockups */}
+        <section className={`${styles.phones} ${styles.phonesAnimated}`}>
           <IPhoneMockup
             className={`${styles.phoneLeft} ${styles.desktopOnly}`}
             screenshotSrc={screenshots[1].src}

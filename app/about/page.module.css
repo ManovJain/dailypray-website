@@ -21,44 +21,6 @@
   pointer-events: none;
 }
 
-/* ---- NAV ---- */
-
-.nav {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 22px 40px;
-  border-bottom: 0.5px solid var(--color-divider);
-}
-
-.navLogo {
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: var(--weight-regular);
-  color: var(--color-secondary-text);
-}
-
-.navLinks {
-  display: flex;
-  align-items: center;
-  gap: 36px;
-}
-
-.navLink {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: var(--tracking-medium);
-  text-transform: uppercase;
-  color: var(--color-secondary-text);
-  transition: color var(--fade-quick) var(--ease-default);
-}
-
-.navLink:hover {
-  color: var(--color-tertiary-text);
-}
-
 /* ---- HERO ---- */
 
 .hero {
@@ -177,14 +139,6 @@
 /* ---- RESPONSIVE ---- */
 
 @media (max-width: 768px) {
-  .nav {
-    padding: 18px var(--space-horizontal);
-  }
-
-  .navLinks {
-    display: none;
-  }
-
   .hero {
     padding: 60px var(--space-horizontal) 40px;
   }

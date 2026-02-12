@@ -5,16 +5,6 @@ export default function Privacy() {
     <div className={styles.page}>
       <div className={styles.gridBg} />
 
-      <nav className={styles.nav}>
-        <a href="/" className={styles.navLogo}>DailyPray</a>
-        <div className={styles.navLinks}>
-          <a href="/about" className={styles.navLink}>About</a>
-          <a href="/privacy" className={styles.navLink}>Privacy Policy</a>
-          <a href="#" className={styles.navLink}>Changelog</a>
-          <a href="/contact" className={styles.navLink}>Contact</a>
-        </div>
-      </nav>
-
       <article className={styles.content}>
         <h1 className={styles.title}>Daily Pray — Privacy Policy</h1>
         <p className={styles.updated}>Last updated: February 10, 2026</p>

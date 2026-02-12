@@ -1,0 +1,51 @@
+.handsContainer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.handLeftWrap,
+.handRightWrap {
+  position: absolute;
+  top: 50%;
+}
+
+.handLeftWrap {
+  left: 0;
+  transform: translateY(-50%) translateX(-55vw);
+  animation: reachLeft 3s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+}
+
+.handRightWrap {
+  right: 0;
+  transform: translateY(-50%) translateX(55vw);
+  animation: reachRight 3s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+}
+
+.handLeftImg,
+.handRightImg {
+  display: block;
+  height: 55vw;
+  width: auto;
+}
+
+@keyframes reachLeft {
+  to {
+    transform: translateY(-47%) translateX(-12vw);
+  }
+}
+
+@keyframes reachRight {
+  to {
+    transform: translateY(-53%) translateX(12vw);
+  }
+}
+
+@media (max-width: 768px) {
+  .handLeftWrap,
+  .handRightWrap {
+    top: 42%;
+  }
+}

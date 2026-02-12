@@ -48,16 +48,6 @@ export default function Contact() {
     <div className={styles.page}>
       <div className={styles.gridBg} />
 
-      <nav className={styles.nav}>
-        <a href="/" className={styles.navLogo}>DailyPray</a>
-        <div className={styles.navLinks}>
-          <a href="/about" className={styles.navLink}>About</a>
-          <a href="/privacy" className={styles.navLink}>Privacy Policy</a>
-          <a href="#" className={styles.navLink}>Changelog</a>
-          <a href="/contact" className={styles.navLink}>Contact</a>
-        </div>
-      </nav>
-
       <div className={styles.content}>
         <h1 className={`${styles.title} fade-in`}>Get in touch</h1>
         <p className={`${styles.subtitle} fade-in fade-in--delay-1`}>

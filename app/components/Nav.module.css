@@ -1,0 +1,127 @@
+/* ---- NAV ---- */
+
+.nav {
+  position: relative;
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 40px;
+  border-bottom: 0.5px solid var(--color-divider);
+}
+
+.navLogo {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: var(--weight-regular);
+  color: var(--color-secondary-text);
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.navLink {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: var(--tracking-medium);
+  text-transform: uppercase;
+  color: var(--color-secondary-text);
+  transition: color var(--fade-quick) var(--ease-default);
+}
+
+.navLink:hover {
+  color: var(--color-tertiary-text);
+}
+
+/* ---- HAMBURGER BUTTON ---- */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 101;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-foreground);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburgerOpen span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburgerOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerOpen span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ---- MOBILE MENU OVERLAY ---- */
+
+.mobileMenu {
+  position: fixed;
+  inset: 0;
+  background: var(--color-background);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobileMenuOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobileMenuLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.mobileMenuLink {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: var(--tracking-medium);
+  text-transform: uppercase;
+  color: var(--color-secondary-text);
+  transition: color var(--fade-quick) var(--ease-default);
+}
+
+.mobileMenuLink:hover {
+  color: var(--color-tertiary-text);
+}
+
+/* ---- RESPONSIVE ---- */
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 18px var(--space-horizontal);
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
