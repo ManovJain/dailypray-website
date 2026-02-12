@@ -1,0 +1,102 @@
+/* ============================================
+   CHANGELOG PAGE — STRUCTURE
+   ============================================ */
+
+.hero {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--mono-button);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-muted-text);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-regular);
+  line-height: 1.1;
+  color: var(--color-secondary-text);
+}
+
+.subtitle {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-loose);
+  color: var(--color-tertiary-text);
+}
+
+/* ============================================
+   WIDE (≥1280px)
+   ============================================ */
+
+@media (min-width: 1280px) {
+  .hero {
+    padding: 100px var(--space-horizontal) 80px;
+  }
+
+  .label {
+    margin-bottom: 16px;
+  }
+
+  .title {
+    font-size: var(--text-hero);
+    margin-bottom: 20px;
+  }
+
+  .subtitle {
+    font-size: var(--text-italic-medium);
+  }
+}
+
+/* ============================================
+   DESKTOP (769px – 1279px)
+   ============================================ */
+
+@media (min-width: 769px) and (max-width: 1279px) {
+  .hero {
+    padding: 100px var(--space-horizontal) 80px;
+  }
+
+  .label {
+    margin-bottom: 16px;
+  }
+
+  .title {
+    font-size: var(--text-hero);
+    margin-bottom: 20px;
+  }
+
+  .subtitle {
+    font-size: var(--text-italic-medium);
+  }
+}
+
+/* ============================================
+   MOBILE (≤768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 20px 30px;
+  }
+
+  .label {
+    margin-bottom: 16px;
+  }
+
+  .title {
+    font-size: var(--text-title);
+    margin-bottom: 20px;
+  }
+
+  .subtitle {
+    font-size: var(--text-body);
+  }
+}

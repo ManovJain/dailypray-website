@@ -1,23 +1,6 @@
 /* ============================================
-   PRIVACY POLICY PAGE
+   PRIVACY POLICY PAGE — STRUCTURE
    ============================================ */
-
-.page {
-  position: relative;
-  min-height: 100vh;
-  background: var(--color-background);
-}
-
-.gridBg {
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--color-divider) 0.5px, transparent 0.5px),
-    linear-gradient(90deg, var(--color-divider) 0.5px, transparent 0.5px);
-  background-size: 80px 80px;
-  opacity: 0.4;
-  pointer-events: none;
-}
 
 /* ---- CONTENT ---- */
 
@@ -26,7 +9,6 @@
   z-index: 1;
   max-width: 720px;
   margin: 0 auto;
-  padding: 80px var(--space-horizontal) 120px;
 }
 
 .title {
@@ -61,7 +43,7 @@
 
 .sectionTitle {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--mono-button);
   letter-spacing: var(--tracking-medium);
   text-transform: uppercase;
   color: var(--color-foreground);
@@ -131,7 +113,29 @@
   color: var(--color-muted-text);
 }
 
-/* ---- RESPONSIVE ---- */
+/* ============================================
+   WIDE (≥1280px)
+   ============================================ */
+
+@media (min-width: 1280px) {
+  .content {
+    padding: 80px var(--space-horizontal) 120px;
+  }
+}
+
+/* ============================================
+   DESKTOP (769px – 1279px)
+   ============================================ */
+
+@media (min-width: 769px) and (max-width: 1279px) {
+  .content {
+    padding: 80px var(--space-horizontal) 120px;
+  }
+}
+
+/* ============================================
+   MOBILE (≤768px)
+   ============================================ */
 
 @media (max-width: 768px) {
   .content {

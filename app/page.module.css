@@ -1,10 +1,10 @@
 /* ============================================
-   LANDING PAGE
+   LANDING PAGE — STRUCTURE (shared across all sizes)
    ============================================ */
 
 .page {
   position: relative;
-  height: 100vh;
+  height: 100dvh;
   background: var(--color-background);
   overflow: hidden;
 }
@@ -33,7 +33,7 @@
   pointer-events: none;
 }
 
-/* ---- MAIN ---- */
+/* ---- MAIN (structure only) ---- */
 
 .main {
   position: relative;
@@ -44,14 +44,13 @@
   height: calc(100% - 67px);
 }
 
-/* ---- HERO ---- */
+/* ---- HERO (structure only) ---- */
 
 .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 48px var(--space-horizontal) 24px;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -59,23 +58,18 @@
 .title {
   font-family: var(--font-serif);
   font-weight: var(--weight-regular);
-  font-size: var(--text-decorative);
   line-height: 1.1;
   color: var(--color-secondary-text);
-  margin-bottom: 24px;
 }
 
 .subtitle {
   font-family: var(--font-serif);
   font-weight: var(--weight-regular);
-  font-size: var(--text-italic-medium);
   line-height: var(--leading-loose);
   color: var(--color-tertiary-text);
-  max-width: 600px;
-  margin-bottom: 48px;
 }
 
-/* ---- CTA ---- */
+/* ---- CTA (structure only) ---- */
 
 .ctas {
   display: flex;
@@ -86,9 +80,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 18px 52px;
   font-family: var(--font-mono);
-  font-size: 12px;
   letter-spacing: var(--tracking-wide);
   color: var(--color-inverse-fg);
   background: var(--color-foreground);
@@ -102,20 +94,17 @@
   color: var(--color-foreground);
 }
 
-/* ---- PHONE MOCKUPS ---- */
+/* ---- PHONES (structure only) ---- */
 
 .phones {
   display: flex;
   align-items: flex-start;
   justify-content: center;
   gap: 0;
-  padding: 0 var(--space-horizontal);
-  max-width: 1000px;
-  margin: 20px auto 0;
   flex: 1;
 }
 
-/* Staggered animation delays — hands → text → phones */
+/* ---- ANIMATIONS (shared) ---- */
 
 .titleAnimated {
   animation-delay: 2.5s;
@@ -142,92 +131,316 @@
   }
 }
 
-.iphone {
-  position: relative;
-  flex-shrink: 0;
-  aspect-ratio: 1210 / 2488;
-  overflow: visible;
-}
+/* ---- MODAL (structure) ---- */
 
-.iphoneFrame {
-  position: absolute;
+.modalOverlay {
+  position: fixed;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-}
-
-.iphoneScreen {
-  position: absolute;
-  top: 1.97%;
-  left: 5.43%;
-  width: 89.17%;
-  height: 95.48%;
-  border-radius: 11.43% / 5.19%;
-  overflow: hidden;
-  z-index: 1;
-}
-
-/* Carousel fade transition */
-.carouselImage {
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
   opacity: 0;
-  transition: opacity 1s var(--ease-default);
+  pointer-events: none;
+  transition: opacity var(--fade-quick) var(--ease-default);
 }
 
-.carouselImageActive {
+.modalOverlayOpen {
   opacity: 1;
+  pointer-events: auto;
 }
 
-/* Desktop / mobile visibility */
-.desktopOnly {
-  display: block;
+.modal {
+  position: relative;
+  background: var(--color-background);
+  border: 1px solid var(--color-card-border);
+  text-align: center;
 }
 
-.mobileOnly {
-  display: none;
+.modalClose {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--color-tertiary-text);
+  transition: color var(--fade-quick) var(--ease-default);
 }
 
-/* Center phone — largest */
-.phoneCenter {
-  z-index: 3;
-  width: 336px;
+.modalClose:hover {
+  color: var(--color-foreground);
 }
 
-/* Side phones — smaller, partially behind center */
-.phoneLeft,
-.phoneRight {
-  z-index: 1;
-  width: 288px;
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.phoneLeft {
-  margin-right: -40px;
-  transform: translateY(30px);
+.modalTitle {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-regular);
+  color: var(--color-secondary-text);
 }
 
-.phoneRight {
-  margin-left: -40px;
-  transform: translateY(30px);
+.modalSubtitle {
+  font-family: var(--font-serif);
+  line-height: var(--leading-loose);
+  color: var(--color-tertiary-text);
 }
 
-/* ---- RESPONSIVE ---- */
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
-@media (max-width: 768px) {
+.modalInput {
+  font-family: var(--font-serif);
+  font-size: var(--text-body);
+  line-height: var(--leading-default);
+  color: var(--color-foreground);
+  background: var(--color-card-background);
+  border: 1px solid var(--color-card-border);
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color var(--fade-quick) var(--ease-default);
+}
+
+.modalInput:focus {
+  border-color: var(--color-foreground);
+}
+
+.modalInput::placeholder {
+  color: var(--color-muted-text);
+}
+
+.modalBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-inverse-fg);
+  background: var(--color-foreground);
+  border: 1px solid var(--color-foreground);
+  transition: all var(--fade-quick) var(--ease-default);
+}
+
+.modalBtn:hover {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+.modalBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.modalSuccess {
+  font-family: var(--font-serif);
+  font-size: var(--text-body);
+  line-height: var(--leading-loose);
+  color: var(--color-secondary-text);
+}
+
+/* ============================================
+   WIDE (≥1280px)
+   ============================================ */
+
+@media (min-width: 1280px) {
   .hero {
-    padding: 40px var(--space-horizontal) 24px;
+    padding: 28px var(--space-horizontal) 14px;
   }
 
   .title {
-    font-size: var(--text-display);
+    font-size: var(--text-decorative);
+    margin-bottom: 14px;
   }
 
   .subtitle {
-    font-size: var(--text-body);
-    margin-bottom: 36px;
+    font-size: var(--text-italic-medium);
+    max-width: 600px;
+    margin-bottom: 24px;
   }
 
   .downloadBtn {
-    padding: 16px 40px;
+    padding: 14px 44px;
+    font-size: 12px;
+  }
+
+  .desktopOnly {
+    display: block;
+  }
+
+  .mobileOnly {
+    display: none;
+  }
+
+  .phones {
+    margin: 120px auto 0;
+    padding: 0 var(--space-horizontal);
+    max-width: 1000px;
+  }
+
+  .phoneCenter {
+    z-index: 3;
+    width: 336px;
+  }
+
+  .phoneLeft,
+  .phoneRight {
+    z-index: 1;
+    width: 288px;
+  }
+
+  .phoneLeft {
+    margin-right: -40px;
+    transform: translateY(30px);
+  }
+
+  .phoneRight {
+    margin-left: -40px;
+    transform: translateY(30px);
+  }
+
+  .modal {
+    max-width: 440px;
+    width: 100%;
+    padding: 48px 40px;
+  }
+
+  .modalTitle {
+    font-size: var(--text-title);
+    margin-bottom: 12px;
+  }
+
+  .modalSubtitle {
+    font-size: var(--text-small);
+    margin-bottom: 32px;
+  }
+
+  .modalForm {
+    gap: 16px;
+  }
+
+  .modalBtn {
+    padding: 16px 44px;
+    font-size: var(--mono-button);
+  }
+}
+
+/* ============================================
+   DESKTOP (769px – 1279px)
+   ============================================ */
+
+@media (min-width: 769px) and (max-width: 1279px) {
+  .hero {
+    padding: 24px var(--space-horizontal) 12px;
+  }
+
+  .title {
+    font-size: var(--text-decorative);
+    margin-bottom: 14px;
+  }
+
+  .subtitle {
+    font-size: var(--text-italic-medium);
+    max-width: 600px;
+    margin-bottom: 24px;
+  }
+
+  .downloadBtn {
+    padding: 14px 44px;
+    font-size: 12px;
+  }
+
+  .desktopOnly {
+    display: block;
+  }
+
+  .mobileOnly {
+    display: none;
+  }
+
+  .phones {
+    margin: 200px auto 0;
+    padding: 0 var(--space-horizontal);
+    max-width: 1000px;
+  }
+
+  .phoneCenter {
+    z-index: 3;
+    width: 280px;
+  }
+
+  .phoneLeft,
+  .phoneRight {
+    z-index: 1;
+    width: 240px;
+  }
+
+  .phoneLeft {
+    margin-right: -40px;
+    transform: translateY(30px);
+  }
+
+  .phoneRight {
+    margin-left: -40px;
+    transform: translateY(30px);
+  }
+
+  .modal {
+    max-width: 440px;
+    width: 100%;
+    padding: 48px 40px;
+  }
+
+  .modalTitle {
+    font-size: var(--text-title);
+    margin-bottom: 12px;
+  }
+
+  .modalSubtitle {
+    font-size: var(--text-small);
+    margin-bottom: 32px;
+  }
+
+  .modalForm {
+    gap: 16px;
+  }
+
+  .modalBtn {
+    padding: 16px 44px;
+    font-size: var(--mono-button);
+  }
+}
+
+/* ============================================
+   MOBILE (≤768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 24px 20px 16px;
+  }
+
+  .title {
+    font-size: var(--text-title);
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    font-size: var(--text-small);
+    max-width: 300px;
+    margin-bottom: 18px;
+  }
+
+  .downloadBtn {
+    padding: 14px 36px;
+    font-size: 11px;
   }
 
   .desktopOnly {
@@ -239,39 +452,47 @@
   }
 
   .phones {
-    margin-top: 48px;
+    margin: 160px auto 0;
     padding: 0;
     overflow: visible;
   }
 
   .phoneCenter {
-    width: 336px;
+    z-index: 3;
+    width: 280px;
   }
 
-}
-
-@media (max-width: 480px) {
-  .hero {
-    padding: 48px 20px 28px;
+  .phoneLeft,
+  .phoneRight {
+    display: none;
   }
 
-  .title {
-    font-size: var(--text-title);
+  .modalOverlay {
+    padding: 20px;
   }
 
-  .subtitle {
+  .modal {
+    max-width: 100%;
+    width: 100%;
+    padding: 40px 24px;
+  }
+
+  .modalTitle {
+    font-size: var(--text-headline);
+    margin-bottom: 10px;
+  }
+
+  .modalSubtitle {
     font-size: var(--text-small);
-    max-width: 300px;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
 
-  .downloadBtn {
+  .modalForm {
+    gap: 14px;
+  }
+
+  .modalBtn {
     padding: 14px 36px;
     font-size: 11px;
   }
-
-  .phoneCenter {
-    width: 312px;
-  }
-
 }

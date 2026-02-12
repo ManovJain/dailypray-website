@@ -1,0 +1,39 @@
+/* ============================================
+   IPHONE MOCKUP — STRUCTURE
+   ============================================ */
+
+.iphone {
+  position: relative;
+  flex-shrink: 0;
+  aspect-ratio: 1210 / 2488;
+  overflow: visible;
+}
+
+.iphoneFrame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.iphoneScreen {
+  position: absolute;
+  top: 1.97%;
+  left: 5.43%;
+  width: 89.17%;
+  height: 95.48%;
+  border-radius: 11.43% / 5.19%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Carousel fade transition */
+.carouselImage {
+  opacity: 0;
+  transition: opacity 1s var(--ease-default);
+}
+
+.carouselImageActive {
+  opacity: 1;
+}

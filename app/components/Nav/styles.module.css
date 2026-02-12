@@ -1,18 +1,19 @@
-/* ---- NAV ---- */
+/* ---- NAV (structure) ---- */
 
 .nav {
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 110;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px 40px;
   border-bottom: 0.5px solid var(--color-divider);
+  background: var(--color-background);
 }
 
 .navLogo {
   font-family: var(--font-serif);
-  font-size: 22px;
+  font-size: var(--text-verse);
   font-weight: var(--weight-regular);
   color: var(--color-secondary-text);
 }
@@ -20,12 +21,11 @@
 .navLinks {
   display: flex;
   align-items: center;
-  gap: 36px;
 }
 
 .navLink {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--mono-caption);
   letter-spacing: var(--tracking-medium);
   text-transform: uppercase;
   color: var(--color-secondary-text);
@@ -55,7 +55,7 @@
   width: 24px;
   height: 2px;
   background: var(--color-foreground);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform var(--fade-quick) var(--ease-default), opacity var(--fade-quick) var(--ease-default);
 }
 
 .hamburgerOpen span:nth-child(1) {
@@ -82,7 +82,7 @@
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--fade-quick) var(--ease-default);
 }
 
 .mobileMenuOpen {
@@ -99,7 +99,7 @@
 
 .mobileMenuLink {
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: var(--text-small);
   letter-spacing: var(--tracking-medium);
   text-transform: uppercase;
   color: var(--color-secondary-text);
@@ -110,7 +110,45 @@
   color: var(--color-tertiary-text);
 }
 
-/* ---- RESPONSIVE ---- */
+/* ============================================
+   WIDE (≥1280px)
+   ============================================ */
+
+@media (min-width: 1280px) {
+  .nav {
+    padding: 22px 40px;
+  }
+
+  .navLinks {
+    gap: 36px;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+/* ============================================
+   DESKTOP (769px – 1279px)
+   ============================================ */
+
+@media (min-width: 769px) and (max-width: 1279px) {
+  .nav {
+    padding: 22px 40px;
+  }
+
+  .navLinks {
+    gap: 36px;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+/* ============================================
+   MOBILE (≤768px)
+   ============================================ */
 
 @media (max-width: 768px) {
   .nav {

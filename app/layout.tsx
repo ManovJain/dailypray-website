@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Nav } from "./components/Nav";
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_NAME } from "./metadata";
 import "./globals.css";
 
 const lora = localFont({
@@ -30,21 +31,18 @@ const akkuratMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "DailyPray — Daily Prayer & Devotion",
-  description:
-    "A gentle daily companion for prayer, scripture, and spiritual reflection.",
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
   openGraph: {
-    title: "DailyPray — Daily Prayer & Devotion",
-    description:
-      "A gentle daily companion for prayer, scripture, and spiritual reflection.",
-    siteName: "DailyPray",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    siteName: SITE_NAME,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "DailyPray — Daily Prayer & Devotion",
-    description:
-      "A gentle daily companion for prayer, scripture, and spiritual reflection.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
   },
 };
 
