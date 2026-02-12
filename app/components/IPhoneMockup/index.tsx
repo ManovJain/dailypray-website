@@ -50,6 +50,7 @@ export function IPhoneMockup({
           src={screenshotSrc}
           alt={alt}
           fill
+          sizes="(max-width: 768px) 280px, 336px"
           style={{ objectFit: "cover" }}
           priority
         />
@@ -78,6 +79,7 @@ export function IPhoneCarousel({ className }: { className?: string }) {
             src={shot.src}
             alt={shot.alt}
             fill
+            sizes="280px"
             style={{ objectFit: "cover" }}
             className={`${styles.carouselImage} ${
               i === activeIndex ? styles.carouselImageActive : ""

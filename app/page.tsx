@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import { HandsBackground } from "./components/HandsBackground";
 import { IPhoneMockup, IPhoneCarousel } from "./components/IPhoneMockup";
 import { screenshots } from "./components/IPhoneMockup/messages";
@@ -8,47 +5,11 @@ import {
   HOME_TITLE,
   HOME_SUBTITLE,
   HOME_CTA,
-  HOME_WAITLIST_TITLE,
-  HOME_WAITLIST_SUBTITLE,
-  HOME_WAITLIST_PLACEHOLDER,
-  HOME_WAITLIST_SUBMIT,
-  HOME_WAITLIST_SUBMITTING,
-  HOME_WAITLIST_SUCCESS,
-  GOOGLE_FORM_URL,
-  GOOGLE_FORM_EMAIL_FIELD,
+  HOME_CTA_URL,
 } from "./messages";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [email, setEmail] = useState("");
-  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success">("idle");
-
-  async function handleWaitlistSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setFormStatus("submitting");
-
-    const formData = new FormData();
-    formData.append(GOOGLE_FORM_EMAIL_FIELD, email);
-
-    try {
-      await fetch(GOOGLE_FORM_URL, {
-        method: "POST",
-        mode: "no-cors",
-        body: formData,
-      });
-      setFormStatus("success");
-    } catch {
-      setFormStatus("success");
-    }
-  }
-
-  function closeModal() {
-    setModalOpen(false);
-    setEmail("");
-    setFormStatus("idle");
-  }
-
   return (
     <div className={styles.page}>
       {/* Background layers */}
@@ -68,12 +29,14 @@ export default function Home() {
           </p>
 
           <div className={`${styles.ctas} fade-in ${styles.ctaAnimated}`}>
-            <button
+            <a
+              href={HOME_CTA_URL}
               className={styles.downloadBtn}
-              onClick={() => setModalOpen(true)}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               {HOME_CTA}
-            </button>
+            </a>
           </div>
         </section>
 
@@ -98,48 +61,6 @@ export default function Home() {
           <IPhoneCarousel className={`${styles.phoneCenter} ${styles.mobileOnly}`} />
         </section>
       </main>
-
-      {/* Waitlist Modal */}
-      <div
-        className={`${styles.modalOverlay} ${modalOpen ? styles.modalOverlayOpen : ""}`}
-        onClick={closeModal}
-      >
-        <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-          <button className={styles.modalClose} onClick={closeModal} aria-label="Close">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
-          </button>
-
-          {formStatus === "success" ? (
-            <div className={styles.modalBody}>
-              <p className={styles.modalSuccess}>{HOME_WAITLIST_SUCCESS}</p>
-            </div>
-          ) : (
-            <div className={styles.modalBody}>
-              <h2 className={styles.modalTitle}>{HOME_WAITLIST_TITLE}</h2>
-              <p className={styles.modalSubtitle}>{HOME_WAITLIST_SUBTITLE}</p>
-              <form onSubmit={handleWaitlistSubmit} className={styles.modalForm}>
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder={HOME_WAITLIST_PLACEHOLDER}
-                  className={styles.modalInput}
-                />
-                <button
-                  type="submit"
-                  className={styles.modalBtn}
-                  disabled={formStatus === "submitting"}
-                >
-                  {formStatus === "submitting" ? HOME_WAITLIST_SUBMITTING : HOME_WAITLIST_SUBMIT}
-                </button>
-              </form>
-            </div>
-          )}
-        </div>
-      </div>
     </div>
   );
 }
