@@ -165,20 +165,20 @@
   }
 
   .phones {
-    margin: 160px auto 0;
+    margin: 100px auto 0;
     padding: 0 var(--space-horizontal);
     max-width: 1000px;
   }
 
   .phoneCenter {
     z-index: 3;
-    width: 300px;
+    width: 280px;
   }
 
   .phoneLeft,
   .phoneRight {
     z-index: 1;
-    width: 256px;
+    width: 240px;
   }
 
   .phoneLeft {
@@ -348,47 +348,18 @@
   }
 
   .phones {
-    margin: 150px auto 0;
+    margin: 120px auto 0;
     padding: 0;
     overflow: visible;
   }
 
   .phoneCenter {
     z-index: 3;
-    width: 280px;
+    width: 240px;
   }
 
   .phoneLeft,
   .phoneRight {
     display: none;
-  }
-
-  .modalOverlay {
-    padding: 20px;
-  }
-
-  .modal {
-    max-width: 100%;
-    width: 100%;
-    padding: 40px 24px;
-  }
-
-  .modalTitle {
-    font-size: var(--text-headline);
-    margin-bottom: 10px;
-  }
-
-  .modalSubtitle {
-    font-size: var(--text-small);
-    margin-bottom: 28px;
-  }
-
-  .modalForm {
-    gap: 14px;
-  }
-
-  .modalBtn {
-    padding: 14px 36px;
-    font-size: 11px;
   }
 }

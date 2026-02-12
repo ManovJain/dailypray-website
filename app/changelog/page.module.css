@@ -32,6 +32,56 @@
   color: var(--color-tertiary-text);
 }
 
+/* ---- VERSIONS ---- */
+
+.versions {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.versionHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.versionNumber {
+  font-family: var(--font-mono);
+  font-size: var(--mono-button);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-foreground);
+}
+
+.versionLabel {
+  font-family: var(--font-serif);
+  font-size: var(--text-small);
+  color: var(--color-muted-text);
+}
+
+.versionItems {
+  list-style: none;
+}
+
+.versionItem {
+  font-family: var(--font-serif);
+  font-size: var(--text-small);
+  line-height: var(--leading-loose);
+  color: var(--color-secondary-text);
+}
+
+.versionItem::before {
+  content: "\2022";
+  color: var(--color-muted-text);
+  margin-right: 10px;
+}
+
+.versionDivider {
+  border: none;
+  border-top: 0.5px solid var(--color-divider);
+}
+
 /* ============================================
    WIDE (≥1280px)
    ============================================ */
@@ -52,6 +102,22 @@
 
   .subtitle {
     font-size: var(--text-italic-medium);
+  }
+
+  .versions {
+    padding: 0 var(--space-horizontal) 120px;
+  }
+
+  .versionHeader {
+    margin-bottom: 20px;
+  }
+
+  .versionItem {
+    margin-bottom: 6px;
+  }
+
+  .versionDivider {
+    margin: 40px 0;
   }
 }
 
@@ -76,6 +142,22 @@
   .subtitle {
     font-size: var(--text-italic-medium);
   }
+
+  .versions {
+    padding: 0 var(--space-horizontal) 120px;
+  }
+
+  .versionHeader {
+    margin-bottom: 20px;
+  }
+
+  .versionItem {
+    margin-bottom: 6px;
+  }
+
+  .versionDivider {
+    margin: 40px 0;
+  }
 }
 
 /* ============================================
@@ -98,5 +180,21 @@
 
   .subtitle {
     font-size: var(--text-body);
+  }
+
+  .versions {
+    padding: 0 20px 80px;
+  }
+
+  .versionHeader {
+    margin-bottom: 16px;
+  }
+
+  .versionItem {
+    margin-bottom: 4px;
+  }
+
+  .versionDivider {
+    margin: 32px 0;
   }
 }

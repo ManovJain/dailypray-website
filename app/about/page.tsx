@@ -30,6 +30,7 @@ export default function About() {
                   src={feature.src}
                   alt={feature.alt}
                   fill
+                  sizes="(max-width: 768px) 240px, 300px"
                   style={{ objectFit: "cover" }}
                 />
               </div>
