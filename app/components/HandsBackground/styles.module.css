@@ -1,0 +1,109 @@
+/* ---- STRUCTURE (shared) ---- */
+
+.handsContainer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.handLeftWrap,
+.handRightWrap {
+  position: absolute;
+}
+
+.handLeftWrap {
+  left: 0;
+  transform: translateY(-50%) translateX(-55vw);
+  animation: reachLeft 3s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+}
+
+.handRightWrap {
+  right: 0;
+  transform: translateY(-50%) translateX(55vw);
+  animation: reachRight 3s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+}
+
+.handLeftImg,
+.handRightImg {
+  display: block;
+  width: auto;
+}
+
+@keyframes reachLeft {
+  to {
+    transform: translateY(-47%) translateX(-12vw);
+  }
+}
+
+@keyframes reachRight {
+  to {
+    transform: translateY(-53%) translateX(12vw);
+  }
+}
+
+/* ============================================
+   WIDE (≥1280px)
+   ============================================ */
+
+@media (min-width: 1280px) {
+  .handLeftWrap,
+  .handRightWrap {
+    top: 40%;
+  }
+
+  .handLeftImg,
+  .handRightImg {
+    height: 55vw;
+  }
+}
+
+/* ============================================
+   DESKTOP (769px – 1279px)
+   ============================================ */
+
+@media (min-width: 769px) and (max-width: 1279px) {
+  .handLeftWrap,
+  .handRightWrap {
+    top: 38%;
+  }
+
+  .handLeftImg,
+  .handRightImg {
+    height: 55vw;
+  }
+}
+
+/* ============================================
+   MOBILE (≤768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+  .handLeftWrap {
+    top: 38%;
+    animation-name: reachLeftMobile;
+  }
+
+  .handRightWrap {
+    top: 38%;
+    animation-name: reachRightMobile;
+  }
+
+  .handLeftImg,
+  .handRightImg {
+    height: 60vw;
+  }
+}
+
+@keyframes reachLeftMobile {
+  to {
+    transform: translateY(-47%) translateX(-15vw);
+  }
+}
+
+@keyframes reachRightMobile {
+  to {
+    transform: translateY(-53%) translateX(20vw);
+  }
+}

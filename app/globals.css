@@ -5,7 +5,6 @@
 :root {
   /* --- COLORS --- */
   --color-background:           #FAFAF7;
-  --color-background-secondary: #F3F3EF;
   --color-foreground:           #000000;
   --color-secondary-text:       #1A1A1A;
   --color-tertiary-text:        #666666;
@@ -23,17 +22,12 @@
   --font-mono:  var(--font-akkurat), 'Akkurat', 'SF Mono', 'JetBrains Mono', 'Fira Code', monospace;
 
   /* --- FONT SIZES (Serif scale) --- */
-  --text-stat:          80px;
   --text-decorative:    60px;
   --text-hero:          48px;
   --text-display:       40px;
   --text-title:         32px;
   --text-headline:      28px;
-  --text-mantra:        26px;
-  --text-subheadline:   24px;
-  --text-large:         24px;
   --text-verse:         22px;
-  --text-italic-large:  20px;
   --text-italic-medium: 18px;
   --text-body:          16px;
   --text-small:         14px;
@@ -42,19 +36,15 @@
   /* --- FONT SIZES (Mono scale) --- */
   --mono-button:        12px;
   --mono-caption:       10px;
-  --mono-meta:          9px;
 
   /* --- FONT WEIGHTS --- */
   --weight-regular:     400;
-  --weight-medium:      500;
   --weight-semibold:    600;
-  --weight-bold:        700;
 
   /* --- LETTER SPACING --- */
   --tracking-wide:      4px;
   --tracking-medium:    3px;
   --tracking-button:    2px;
-  --tracking-tight:     1px;
 
   /* --- LINE HEIGHT --- */
   --leading-compact:    1.2;
@@ -63,15 +53,6 @@
 
   /* --- SPACING --- */
   --space-horizontal:   28px;
-  --space-section:      40px;
-  --space-card-h:       24px;
-  --space-card-v:       28px;
-  --space-element:      16px;
-  --space-screen-top:   60px;
-  --space-screen-bottom:48px;
-  --space-button-v:     18px;
-  --space-row-v:        12px;
-  --space-row-v-large:  14px;
 
   /* --- CARDS --- */
   --card-border-width:  0.5px;
@@ -97,7 +78,10 @@
   margin: 0;
 }
 
-html,
+html {
+  max-width: 100vw;
+}
+
 body {
   max-width: 100vw;
   overflow-x: hidden;
@@ -114,6 +98,11 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
 }
 
 /* ============================================
@@ -136,7 +125,24 @@ a {
 }
 .fade-in--delay-1 { animation-delay: 0.2s; }
 .fade-in--delay-2 { animation-delay: 0.4s; }
-.fade-in--delay-3 { animation-delay: 0.6s; }
-.fade-in--delay-4 { animation-delay: 0.8s; }
-.fade-in--delay-5 { animation-delay: 1.0s; }
-.fade-in--delay-6 { animation-delay: 1.2s; }
+
+/* ============================================
+   GLOBAL UTILITIES
+   ============================================ */
+
+.gridBg {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--color-divider) 0.5px, transparent 0.5px),
+    linear-gradient(90deg, var(--color-divider) 0.5px, transparent 0.5px);
+  background-size: 80px 80px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.pageWrapper {
+  position: relative;
+  min-height: 100vh;
+  background: var(--color-background);
+}

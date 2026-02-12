@@ -1,4 +1,9 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { screenshots } from "./messages";
+import styles from "./styles.module.css";
 
 export function IPhoneFrame({ className }: { className?: string }) {
   return (
@@ -31,20 +36,16 @@ export function IPhoneFrame({ className }: { className?: string }) {
 
 export function IPhoneMockup({
   className,
-  frameClassName,
-  screenClassName,
   screenshotSrc,
   alt,
 }: {
   className?: string;
-  frameClassName?: string;
-  screenClassName?: string;
   screenshotSrc: string;
   alt: string;
 }) {
   return (
-    <div className={className}>
-      <div className={screenClassName}>
+    <div className={`${styles.iphone} ${className || ""}`}>
+      <div className={styles.iphoneScreen}>
         <Image
           src={screenshotSrc}
           alt={alt}
@@ -53,7 +54,39 @@ export function IPhoneMockup({
           priority
         />
       </div>
-      <IPhoneFrame className={frameClassName} />
+      <IPhoneFrame className={styles.iphoneFrame} />
+    </div>
+  );
+}
+
+export function IPhoneCarousel({ className }: { className?: string }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % screenshots.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className={`${styles.iphone} ${className || ""}`}>
+      <div className={styles.iphoneScreen}>
+        {screenshots.map((shot, i) => (
+          <Image
+            key={shot.src}
+            src={shot.src}
+            alt={shot.alt}
+            fill
+            style={{ objectFit: "cover" }}
+            className={`${styles.carouselImage} ${
+              i === activeIndex ? styles.carouselImageActive : ""
+            }`}
+            priority={i === 0}
+          />
+        ))}
+      </div>
+      <IPhoneFrame className={styles.iphoneFrame} />
     </div>
   );
 }

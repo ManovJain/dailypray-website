@@ -1,6 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import {
+  CONTACT_TITLE,
+  CONTACT_SUBTITLE,
+  CONTACT_FORM,
+  CONTACT_BUTTON_SEND,
+  CONTACT_BUTTON_SENDING,
+  CONTACT_SUCCESS,
+  CONTACT_ERROR_FALLBACK,
+} from "./messages";
 import styles from "./page.module.css";
 
 export default function Contact() {
@@ -39,25 +48,24 @@ export default function Contact() {
     } catch (err) {
       setStatus("error");
       setErrorMsg(
-        err instanceof Error ? err.message : "Failed to send. Please try again."
+        err instanceof Error ? err.message : CONTACT_ERROR_FALLBACK
       );
     }
   }
 
   return (
-    <div className={styles.page}>
-      <div className={styles.gridBg} />
+    <div className="pageWrapper">
+      <div className="gridBg" />
 
       <div className={styles.content}>
-        <h1 className={`${styles.title} fade-in`}>Get in touch</h1>
+        <h1 className={`${styles.title} fade-in`}>{CONTACT_TITLE}</h1>
         <p className={`${styles.subtitle} fade-in fade-in--delay-1`}>
-          Questions, feedback, or prayer requests — we&rsquo;d love to hear from
-          you.
+          {CONTACT_SUBTITLE}
         </p>
 
         {status === "sent" ? (
           <div className={`${styles.success} fade-in`}>
-            Thank you for reaching out. We&rsquo;ll get back to you soon.
+            {CONTACT_SUCCESS}
           </div>
         ) : (
           <form
@@ -66,7 +74,7 @@ export default function Contact() {
           >
             <div className={styles.field}>
               <label htmlFor="name" className={styles.label}>
-                Name
+                {CONTACT_FORM.name.label}
               </label>
               <input
                 id="name"
@@ -74,13 +82,13 @@ export default function Contact() {
                 type="text"
                 required
                 className={styles.input}
-                placeholder="Your name"
+                placeholder={CONTACT_FORM.name.placeholder}
               />
             </div>
 
             <div className={styles.field}>
               <label htmlFor="email" className={styles.label}>
-                Email
+                {CONTACT_FORM.email.label}
               </label>
               <input
                 id="email"
@@ -88,20 +96,20 @@ export default function Contact() {
                 type="email"
                 required
                 className={styles.input}
-                placeholder="you@example.com"
+                placeholder={CONTACT_FORM.email.placeholder}
               />
             </div>
 
             <div className={styles.field}>
               <label htmlFor="message" className={styles.label}>
-                Message
+                {CONTACT_FORM.message.label}
               </label>
               <textarea
                 id="message"
                 name="message"
                 required
                 className={styles.textarea}
-                placeholder="How can we help?"
+                placeholder={CONTACT_FORM.message.placeholder}
               />
             </div>
 
@@ -114,7 +122,7 @@ export default function Contact() {
               className={styles.submitBtn}
               disabled={status === "sending"}
             >
-              {status === "sending" ? "Sending..." : "Send Message"}
+              {status === "sending" ? CONTACT_BUTTON_SENDING : CONTACT_BUTTON_SEND}
             </button>
           </form>
         )}

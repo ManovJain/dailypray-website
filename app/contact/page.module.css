@@ -1,23 +1,6 @@
 /* ============================================
-   CONTACT PAGE
+   CONTACT PAGE — STRUCTURE
    ============================================ */
-
-.page {
-  position: relative;
-  min-height: 100vh;
-  background: var(--color-background);
-}
-
-.gridBg {
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--color-divider) 0.5px, transparent 0.5px),
-    linear-gradient(90deg, var(--color-divider) 0.5px, transparent 0.5px);
-  background-size: 80px 80px;
-  opacity: 0.4;
-  pointer-events: none;
-}
 
 /* ---- CONTENT ---- */
 
@@ -26,25 +9,20 @@
   z-index: 1;
   max-width: 540px;
   margin: 0 auto;
-  padding: 80px var(--space-horizontal) 120px;
 }
 
 .title {
   font-family: var(--font-serif);
   font-weight: var(--weight-regular);
-  font-size: var(--text-title);
   line-height: 1.1;
   color: var(--color-secondary-text);
-  margin-bottom: 12px;
 }
 
 .subtitle {
   font-family: var(--font-serif);
   font-weight: var(--weight-regular);
-  font-size: var(--text-italic-medium);
   line-height: var(--leading-loose);
   color: var(--color-tertiary-text);
-  margin-bottom: 48px;
 }
 
 /* ---- FORM ---- */
@@ -102,9 +80,8 @@
   align-items: center;
   justify-content: center;
   align-self: flex-start;
-  padding: 16px 44px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: var(--mono-button);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
   color: var(--color-inverse-fg);
@@ -142,7 +119,57 @@
   color: var(--color-destructive);
 }
 
-/* ---- RESPONSIVE ---- */
+/* ============================================
+   WIDE (≥1280px)
+   ============================================ */
+
+@media (min-width: 1280px) {
+  .content {
+    padding: 80px var(--space-horizontal) 120px;
+  }
+
+  .title {
+    font-size: var(--text-title);
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-size: var(--text-italic-medium);
+    margin-bottom: 48px;
+  }
+
+  .submitBtn {
+    padding: 16px 44px;
+  }
+}
+
+/* ============================================
+   DESKTOP (769px – 1279px)
+   ============================================ */
+
+@media (min-width: 769px) and (max-width: 1279px) {
+  .content {
+    padding: 80px var(--space-horizontal) 120px;
+  }
+
+  .title {
+    font-size: var(--text-title);
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-size: var(--text-italic-medium);
+    margin-bottom: 48px;
+  }
+
+  .submitBtn {
+    padding: 16px 44px;
+  }
+}
+
+/* ============================================
+   MOBILE (≤768px)
+   ============================================ */
 
 @media (max-width: 768px) {
   .content {
@@ -151,5 +178,15 @@
 
   .title {
     font-size: var(--text-headline);
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-size: var(--text-italic-medium);
+    margin-bottom: 48px;
+  }
+
+  .submitBtn {
+    padding: 16px 44px;
   }
 }
