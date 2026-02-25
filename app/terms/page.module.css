@@ -1,0 +1,144 @@
+/* ============================================
+   TERMS OF USE PAGE — STRUCTURE
+   ============================================ */
+
+/* ---- CONTENT ---- */
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: var(--font-mono);
+  font-size: var(--mono-button);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-foreground);
+  margin-bottom: 12px;
+}
+
+.updated {
+  font-family: var(--font-mono);
+  font-size: var(--mono-caption);
+  letter-spacing: var(--tracking-button);
+  text-transform: uppercase;
+  color: var(--color-muted-text);
+  margin-bottom: 48px;
+}
+
+.intro {
+  font-family: var(--font-serif);
+  font-size: var(--text-body);
+  line-height: var(--leading-loose);
+  color: var(--color-secondary-text);
+  margin-bottom: 48px;
+}
+
+.section {
+  margin-bottom: 48px;
+}
+
+.sectionTitle {
+  font-family: var(--font-mono);
+  font-size: var(--mono-button);
+  letter-spacing: var(--tracking-medium);
+  text-transform: uppercase;
+  color: var(--color-foreground);
+  margin-bottom: 20px;
+}
+
+.subsectionTitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  color: var(--color-secondary-text);
+  margin-bottom: 12px;
+}
+
+.paragraph {
+  font-family: var(--font-serif);
+  font-size: var(--text-body);
+  line-height: var(--leading-loose);
+  color: var(--color-tertiary-text);
+  margin-bottom: 16px;
+}
+
+.list {
+  font-family: var(--font-serif);
+  font-size: var(--text-body);
+  line-height: var(--leading-loose);
+  color: var(--color-tertiary-text);
+  list-style: none;
+  margin-bottom: 16px;
+}
+
+.list li {
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.list li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--color-muted-text);
+}
+
+.link {
+  color: var(--color-secondary-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-divider);
+  transition: text-decoration-color var(--fade-quick) var(--ease-default);
+}
+
+.link:hover {
+  text-decoration-color: var(--color-secondary-text);
+}
+
+.divider {
+  border: none;
+  border-top: 0.5px solid var(--color-divider);
+  margin: 48px 0;
+}
+
+.footer {
+  font-family: var(--font-serif);
+  font-size: var(--text-small);
+  font-style: italic;
+  color: var(--color-muted-text);
+}
+
+/* ============================================
+   WIDE (≥1280px)
+   ============================================ */
+
+@media (min-width: 1280px) {
+  .content {
+    padding: 80px var(--space-horizontal) 120px;
+  }
+}
+
+/* ============================================
+   DESKTOP (769px – 1279px)
+   ============================================ */
+
+@media (min-width: 769px) and (max-width: 1279px) {
+  .content {
+    padding: 80px var(--space-horizontal) 120px;
+  }
+}
+
+/* ============================================
+   MOBILE (≤768px)
+   ============================================ */
+
+@media (max-width: 768px) {
+  .content {
+    padding: 48px var(--space-horizontal) 80px;
+  }
+}
