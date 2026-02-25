@@ -5,6 +5,11 @@ export const ABOUT_HERO_SUBTITLE =
 export const ABOUT_FOOTER_AUTHOR = "manovjain";
 export const ABOUT_FOOTER_URL = "https://www.manovjain.com/";
 
+export const ABOUT_FOOTER_LINKS = [
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms of Use" },
+];
+
 export const ABOUT_FEATURES = [
   {
     label: "Onboarding",

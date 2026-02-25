@@ -118,14 +118,33 @@
   color: var(--color-tertiary-text);
 }
 
-.footer a {
+.footerLinks {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.footerLinks a {
+  color: var(--color-tertiary-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--color-divider);
+  transition: text-decoration-color var(--fade-quick) var(--ease-default);
+}
+
+.footerLinks a:hover {
+  text-decoration-color: var(--color-secondary-text);
+}
+
+.footerCredit a {
   color: var(--color-secondary-text);
   text-decoration: underline;
   text-underline-offset: 2px;
   transition: color var(--fade-quick) var(--ease-default);
 }
 
-.footer a:hover {
+.footerCredit a:hover {
   color: var(--color-foreground);
 }
 

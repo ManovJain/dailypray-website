@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { IPhoneFrame } from "../components/IPhoneMockup";
-import { ABOUT_HERO_TITLE, ABOUT_HERO_SUBTITLE, ABOUT_FEATURES, ABOUT_FOOTER_AUTHOR, ABOUT_FOOTER_URL } from "./messages";
+import { ABOUT_HERO_TITLE, ABOUT_HERO_SUBTITLE, ABOUT_FEATURES, ABOUT_FOOTER_AUTHOR, ABOUT_FOOTER_URL, ABOUT_FOOTER_LINKS } from "./messages";
 import styles from "./page.module.css";
 
 export default function About() {
@@ -50,10 +50,19 @@ export default function About() {
       </div>
 
       <footer className={styles.footer}>
-        created by{" "}
-        <a href={ABOUT_FOOTER_URL} target="_blank" rel="noopener noreferrer">
-          {ABOUT_FOOTER_AUTHOR}
-        </a>
+        <div className={styles.footerLinks}>
+          {ABOUT_FOOTER_LINKS.map((link) => (
+            <a key={link.href} href={link.href}>
+              {link.label}
+            </a>
+          ))}
+        </div>
+        <p className={styles.footerCredit}>
+          created by{" "}
+          <a href={ABOUT_FOOTER_URL} target="_blank" rel="noopener noreferrer">
+            {ABOUT_FOOTER_AUTHOR}
+          </a>
+        </p>
       </footer>
     </div>
   );
