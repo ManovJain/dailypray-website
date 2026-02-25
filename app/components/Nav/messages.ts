@@ -3,6 +3,7 @@ export const NAV_LOGO = "DailyPray";
 export const NAV_LINKS = [
   { href: "/about", label: "About" },
   { href: "/privacy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms of Use" },
   { href: "/changelog", label: "Changelog" },
   { href: "/contact", label: "Contact" },
 ];
