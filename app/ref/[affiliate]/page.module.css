@@ -1,0 +1,87 @@
+.page {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  padding: 2rem var(--space-horizontal);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 480px;
+  width: 100%;
+}
+
+.logoWrapper {
+  margin-bottom: 1.5rem;
+}
+
+.logo {
+  border-radius: 18px;
+}
+
+.title {
+  font-family: var(--font-lora);
+  font-size: var(--text-display);
+  font-weight: 400;
+  color: var(--color-fg);
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-family: var(--font-lora);
+  font-size: var(--text-body);
+  color: var(--color-secondary);
+  margin: 0 0 2.5rem;
+  line-height: 1.6;
+  max-width: 360px;
+}
+
+.codeCard {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+.codeLabel {
+  font-family: var(--font-lora);
+  font-size: var(--text-small);
+  color: var(--color-tertiary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.code {
+  font-family: var(--font-akkurat);
+  font-size: var(--text-headline);
+  font-weight: 700;
+  color: var(--color-fg);
+  margin: 0.5rem 0;
+  letter-spacing: 0.04em;
+  word-break: break-all;
+}
+
+.downloadBtn {
+  display: inline-block;
+  font-family: var(--font-akkurat);
+  font-size: var(--text-small);
+  letter-spacing: 0.08em;
+  color: var(--color-bg);
+  background: var(--color-fg);
+  padding: 1rem 2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.downloadBtn:hover {
+  opacity: 0.85;
+}
