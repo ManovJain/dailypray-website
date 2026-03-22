@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   TERMS_TITLE,
   TERMS_UPDATED,
@@ -6,6 +7,13 @@ import {
   TERMS_SECTIONS,
 } from "./messages";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "Terms of Use",
+  description:
+    "DailyPray terms of use — subscription details, acceptable use, and service terms for the Christian screen time app.",
+  alternates: { canonical: "/terms" },
+};
 
 export default function Terms() {
   return (

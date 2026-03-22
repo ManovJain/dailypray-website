@@ -7,11 +7,32 @@ import {
   HOME_CTA,
   HOME_CTA_URL,
 } from "./messages";
+import { SITE_DESCRIPTION, SITE_URL } from "./metadata";
 import styles from "./page.module.css";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "DailyPray",
+  description: SITE_DESCRIPTION,
+  url: SITE_URL,
+  applicationCategory: "LifestyleApplication",
+  operatingSystem: "iOS",
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "USD",
+    lowPrice: "3.99",
+    offerCount: "3",
+  },
+};
 
 export default function Home() {
   return (
     <div className={styles.page}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Background layers */}
       <div className={styles.gridBg} />
       <div className={styles.glowBg} />

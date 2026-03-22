@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   PRIVACY_TITLE,
   PRIVACY_UPDATED,
@@ -6,6 +7,13 @@ import {
   PRIVACY_SECTIONS,
 } from "./messages";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "DailyPray privacy policy — how we handle your data, screen time information, and prayer journal entries.",
+  alternates: { canonical: "/privacy" },
+};
 
 export default function Privacy() {
   return (

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   CHANGELOG_LABEL,
   CHANGELOG_TITLE,
@@ -5,6 +6,13 @@ import {
   CHANGELOG_VERSIONS,
 } from "./messages";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "Changelog — What's New in DailyPray",
+  description:
+    "See the latest updates, new features, and improvements to the DailyPray Christian screen time and prayer app.",
+  alternates: { canonical: "/changelog" },
+};
 
 export default function Changelog() {
   return (

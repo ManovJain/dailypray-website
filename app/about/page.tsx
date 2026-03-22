@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { IPhoneFrame } from "../components/IPhoneMockup";
 import { ABOUT_HERO_TITLE, ABOUT_HERO_SUBTITLE, ABOUT_FEATURES, ABOUT_FOOTER_AUTHOR, ABOUT_FOOTER_URL, ABOUT_FOOTER_LINKS } from "./messages";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "About DailyPray — Features, Prayer Shield & Journal",
+  description:
+    "Learn how DailyPray helps Christians reduce screen time by blocking apps until you pray. Features include guided prayer, app blocking, adult content filtering, and a prayer journal.",
+  alternates: { canonical: "/about" },
+};
 
 export default function About() {
   return (
