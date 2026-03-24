@@ -158,18 +158,24 @@ const maskSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${SCREEN_W}" hei
 </svg>`;
 
 const screenshots = [
-  { file: "onboarding.jpeg", name: "mockup-onboarding" },
-  { file: "prayer.png",      name: "mockup-prayer" },
-  { file: "journal.png",     name: "mockup-journal" },
+  { file: "onboarding.webp", name: "mockup-onboarding" },
+  { file: "prayer.webp",     name: "mockup-prayer" },
+  { file: "journal.webp",    name: "mockup-journal" },
+  { file: "shield.webp",     name: "mockup-shield" },
+  { file: "widget.webp",     name: "mockup-widget" },
+  { file: "notification.webp", name: "mockup-notification" },
 ];
 
 async function generateMockup(screenshot) {
   const screenshotPath = path.join(root, "public/screenshots", screenshot.file);
   const outputPath = path.join(root, "public/mockups", `${screenshot.name}.png`);
 
-  // 1. Resize screenshot to fill screen area
+  // 1. Resize screenshot to fit screen area (contain preserves all edges)
   const resized = await sharp(screenshotPath)
-    .resize(SCREEN_W, SCREEN_H, { fit: "cover" })
+    .resize(SCREEN_W, SCREEN_H, {
+      fit: "contain",
+      background: { r: 255, g: 255, b: 255, alpha: 1 },
+    })
     .toBuffer();
 
   // 2. Clip screenshot to rounded corners

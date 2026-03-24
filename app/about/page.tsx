@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { IPhoneFrame } from "../components/IPhoneMockup";
 import { ABOUT_HERO_TITLE, ABOUT_HERO_SUBTITLE, ABOUT_FEATURES, ABOUT_FOOTER_AUTHOR, ABOUT_FOOTER_URL, ABOUT_FOOTER_LINKS } from "./messages";
 import styles from "./page.module.css";
 
@@ -42,7 +41,13 @@ export default function About() {
                   style={{ objectFit: "cover" }}
                 />
               </div>
-              <IPhoneFrame className={styles.featurePhoneFrame} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/devices/iPhone-14-Pro-Max.svg"
+                alt=""
+                className={styles.featurePhoneFrame}
+                draggable={false}
+              />
             </div>
 
             {/* Text */}
