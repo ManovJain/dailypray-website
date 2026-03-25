@@ -5,7 +5,7 @@
 .iphone {
   position: relative;
   flex-shrink: 0;
-  aspect-ratio: 1310 / 2700;
+  aspect-ratio: 1210 / 2488;
   overflow: visible;
 }
 
@@ -19,10 +19,10 @@
 
 .iphoneScreen {
   position: absolute;
-  top: 3.81%;
-  left: 8.68%;
-  width: 82.37%;
-  height: 87.98%;
+  top: 1.97%;
+  left: 5.43%;
+  width: 89.17%;
+  height: 95.48%;
   border-radius: 11.43% / 5.19%;
   overflow: hidden;
   z-index: 1;
